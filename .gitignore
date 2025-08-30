@@ -1,0 +1,53 @@
+# Build dir
+build
+
+# (Symlink to a) working dir to store official Llava datasets
+playground
+
+# (Symlink to a) dir to store models
+hf
+
+# (Symlink to a) dir to store extra datasets
+datasets
+
+# virtual environment
+venv*
+
+# Python
+__pycache__
+*.pyc
+*.egg-info
+dist
+
+# Log
+*.log
+*.log.*
+*.json
+*.jsonl
+
+# Data
+!**/alpaca-data-conversation.json
+
+# Editor
+.idea
+*.swp
+
+# Other
+.DS_Store
+wandb
+output
+
+checkpoints
+ckpts*
+
+.ipynb_checkpoints
+*.ipynb
+
+robin-[0-9]*_loss.png
+scripts/robin_v2/pretrain_multinodes_[0-9]*.sh
+scripts/robin_v2/finetune_lora_multinodes_[0-9]*.sh
+
+playground-original/
+*.tar.gz
+scripts/amd/test.py
+scripts/amd/results.txt

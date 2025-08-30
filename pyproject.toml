@@ -1,0 +1,45 @@
+[build-system]
+requires = [
+    "setuptools>=61.0",
+]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "robin"
+version = "1.1.3"
+description = "Towards GPT-4 like large language and visual assistant."
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: Apache Software License",
+]
+dependencies = [
+    "torch==2.0.1", "torchvision==0.15.2",
+    "transformers==4.35.0", "tokenizers==0.14.1", "sentencepiece==0.1.99", "shortuuid",
+    "accelerate==0.24.0", "peft==0.6.1", "bitsandbytes==0.41.2.post2",
+    "pydantic<2,>=1", "markdown2[all]", "numpy", "scikit-learn==1.2.2",
+    "gradio==3.35.2", "gradio_client==0.2.9",
+    "requests", "httpx==0.24.0", "uvicorn", "fastapi",
+    "einops==0.6.1", "einops-exts==0.0.4",
+    #"flash-attn==2.3.3",
+
+    # "open_clip_torch==2.23.0",
+    "open_clip_torch @ git+https://github.com/rmst/open-clip.git@01f8200c02c79f582d1189eda88e7459ac1994fe",
+    
+    # "timm==0.9.10",
+    "timm @ git+https://github.com/Alexis-BX/pytorch-image-models.git@98e96c8ebd2356e7aca983e6a3adc1640b1ff8e3"
+]
+
+[project.optional-dependencies]
+train = ["deepspeed==0.12.2", "ninja", "wandb"]
+
+[project.urls]
+"Homepage" = "https://llava-vl.github.io"
+"Bug Tracker" = "https://github.com/haotian-liu/LLaVA/issues"
+
+[tool.setuptools.packages.find]
+exclude = ["checkpoints*", "datasets*", "hf*", "assets*", "benchmark*", "docs", "dist*", "playground*", "scripts*", "tests*"]
+
+[tool.wheel]
+exclude = ["checkpoints*", "datasets*", "hf*", "assets*", "benchmark*", "docs", "dist*", "playground*", "scripts*", "tests*"]
